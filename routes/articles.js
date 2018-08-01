@@ -78,7 +78,7 @@ router.post('/edit/:id', ensureAuthenticated, (req, res) => {
 router.delete('/:id', (req, res) => {
   if (!req.user._id) res.status(500).send();
 
-  Article.findById(req.paprms.id, (err, article) => {
+  Article.findById(req.params.id, (err, article) => {
     if (err) throw err;
     if (article.author != req.user._id) {
       res.status(500).send();
